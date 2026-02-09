@@ -8,8 +8,6 @@ import org.apache.logging.log4j.Logger;
 // UnnecessaryImport
 //  import java.util.ArrayList;
 
-// Either a utility class or a normal class with a non private constructor.
-@SuppressWarnings("PMD.UseUtilityClass")
 public class DemoApp {
 
   private static final Logger LOGGER = LogManager.getLogger(DemoApp.class);
