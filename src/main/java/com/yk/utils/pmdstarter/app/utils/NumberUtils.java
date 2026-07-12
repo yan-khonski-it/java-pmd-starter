@@ -1,4 +1,4 @@
-package com.yk.utils.java21pmd.app.utils;
+package com.yk.utils.pmdstarter.app.utils;
 
 public final class NumberUtils {
 
@@ -6,7 +6,7 @@ public final class NumberUtils {
     throw new AssertionError("Instance is not allowed.");
   }
 
-  // try to rename it to fo(n)
+  // try to rename it to f(n) or fo(n)
   public static String convertNumberToString(int number) {
     return "[" + number + "]";
   }

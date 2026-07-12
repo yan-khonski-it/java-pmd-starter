@@ -1,7 +1,7 @@
-package com.yk.utils.java21pmd.app;
+package com.yk.utils.pmdstarter.app;
 
-import com.yk.utils.java21pmd.app.core.SomeClass;
-import com.yk.utils.java21pmd.app.utils.NumberUtils;
+import com.yk.utils.pmdstarter.app.core.SomeClass;
+import com.yk.utils.pmdstarter.app.utils.NumberUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

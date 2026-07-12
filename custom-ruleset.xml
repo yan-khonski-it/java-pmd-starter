@@ -27,6 +27,7 @@
 
   <rule ref="category/java/codestyle.xml">
     <exclude name="ShortVariable"/>
+    <exclude name="ShortMethodName"/>
     <exclude name="ShortClassName"/>
     <exclude name="LocalVariableCouldBeFinal"/>
     <exclude name="AtLeastOneConstructor"/>

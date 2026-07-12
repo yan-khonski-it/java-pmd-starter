@@ -7,32 +7,36 @@ Feel free to contribute and improve it.
 
 It uses [Google Style formatting](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml).
 
-I used category **category/java/bestpractices.xml**
-from https://github.com/pmd/pmd/blob/master/pmd-java/src/main/resources/rulesets/java/imports.xml
+The custom ruleset ([custom-ruleset.xml](custom-ruleset.xml)) combines several PMD categories
+(performance, security, codestyle, errorprone, multithreading, bestpractices) with some rules excluded or customized.
+All categories: https://github.com/pmd/pmd/tree/main/pmd-java/src/main/resources/category/java
 
 To run it, build with maven and then run the main class `DemoApp`.
 ```
 mvn clean install
+mvn exec:java
 ```
 
 You can play with the java code, for example uncomment different sections and run PMD and see the errors.
-PMD check is the part of the **package** stage.
+PMD check is the part of the **validate** phase.
 
 ### Example
 If you rename the method and its argument into
 ```java
 public final class NumberUtils {
 
-  // try to rename it to fo(n)
-  public static String fo(int n) {
+  // try to rename it to f(n)
+  public static String f(int n) {
     return "[" + n + "]";
   }
 }
 ```
+Note: the custom ruleset lowers the `ShortMethodName` minimum to 2 characters,
+so a 2-character name like `fo` would pass — only 1-character names fail.
 The PMD result will be
 ```text
-[INFO] PMD Failure: utils.com.yk.utils.java21pmd.app.NumberUtils:10 Rule:ShortMethodName Priority:3 Avoid using short method names.
-[INFO] PMD Failure: utils.com.yk.utils.java21pmd.app.NumberUtils:10 Rule:ShortVariable Priority:3 Avoid variables with short names like n.
+[WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortMethodName Priority:3 Avoid using short method names.
+[WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortVariable Priority:3 Avoid variables with short names like n.
 ```
 
 ## Problems I faced.
