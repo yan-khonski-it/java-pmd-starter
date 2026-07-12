@@ -5,13 +5,22 @@ You can re-use it in other projects.
 
 Feel free to contribute and improve it.
 
-It uses [Google Style formatting](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml).
+It uses my custom formatting [intellij-java-yan-google-style-v2_1.xml](intellij-java-yan-google-style-v2_1.xml)
+
+based on the original [intellij-java-google-style.xml](intellij-java-google-style.xml).
+
+[Google Style formatting](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml).
+
+**My custom formatter changes:**
+yan v2.1 is Google Style with 120-column lines, a blank line after the Java class header, compact one-line Javadoc and
+empty classes, and a 2-blank-line tolerance outside Java; everything else is as in the original Google Style.
 
 The custom ruleset ([custom-ruleset.xml](custom-ruleset.xml)) combines several PMD categories
 (performance, security, codestyle, errorprone, multithreading, bestpractices) with some rules excluded or customized.
 All categories: https://github.com/pmd/pmd/tree/main/pmd-java/src/main/resources/category/java
 
 To run it, build with maven and then run the main class `DemoApp`.
+
 ```
 mvn clean install
 mvn exec:java
@@ -21,7 +30,9 @@ You can play with the java code, for example uncomment different sections and ru
 PMD check is the part of the **validate** phase.
 
 ### Example
+
 If you rename the method and its argument into
+
 ```java
 public final class NumberUtils {
 
@@ -31,8 +42,10 @@ public final class NumberUtils {
   }
 }
 ```
-Note: the custom ruleset lowers the `ShortMethodName` minimum to 3 characters, so a 2-character name like `fo` would 
+
+Note: the custom ruleset lowers the `ShortMethodName` minimum to 3 characters, so a 2-character name like `fo` would
 fail. The PMD result will be
+
 ```text
 [WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortMethodName Priority:3 Avoid using short method names.
 [WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortVariable Priority:3 Avoid variables with short names like fo.
@@ -41,19 +54,26 @@ fail. The PMD result will be
 ## Problems I faced.
 
 ### Warning about deprecated rules
+
 There was a warning when I tried to use a specific rule.
 I found this comment:
+
 ```text
  <!-- Rules, that have been moved into a category -->
 ```
+
 in the [source code](https://github.com/pmd/pmd/blob/master/pmd-java/src/main/resources/rulesets/java/junit.xml)
 So instead of using a specific rule, I would use a category.
 
 ```xml
+
 <ruleset>category/java/bestpractices.xml</ruleset>
 ```
+
 instead of
+
 ```xml
+
 <ruleset>rulesets/java/imports.xml</ruleset>
 ```
 
@@ -64,8 +84,11 @@ The warning text:
 > PMD 7.0.0 will remove support for this deprecated Rule name usage.
 
 ### PMD was not run
+
 Added the execution configuration and explicitly use goal **check** in the **package** phase.
+
 ```xml
+
 <executions>
   <execution>
     <id>check pmd and fail</id>
@@ -78,20 +101,24 @@ Added the execution configuration and explicitly use goal **check** in the **pac
 ```
 
 ### Unit test was not run
+
 I added **maven-surefire-plugin**.
 https://stackoverflow.com/questions/53433663/maven-not-running-junit-5-tests
 
 ### PMD was run after unit tests.
+
 To fix it, I checked the phase from **package** to **validate**.
 https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 
 ## Old versions reference (archived).
+
 - https://github.com/yan-khonski-it/pmd-java-21
 - https://github.com/yan-khonski-it/java-17-pmd/tree/main
 - https://github.com/yan-khonski-it/pmd-java-14
 - https://github.com/yan-khonski-it/mvn-pmd-java11
 
 ## References
+
 - https://pmd.github.io/pmd/pmd_rules_java_codestyle.html#shortvariable
 - https://pmd.github.io/latest/pmd_userdocs_suppressing_warnings.html
 - https://www.baeldung.com/pmd
