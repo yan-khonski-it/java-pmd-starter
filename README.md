@@ -31,12 +31,11 @@ public final class NumberUtils {
   }
 }
 ```
-Note: the custom ruleset lowers the `ShortMethodName` minimum to 2 characters,
-so a 2-character name like `fo` would pass — only 1-character names fail.
-The PMD result will be
+Note: the custom ruleset lowers the `ShortMethodName` minimum to 3 characters, so a 2-character name like `fo` would 
+fail. The PMD result will be
 ```text
 [WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortMethodName Priority:3 Avoid using short method names.
-[WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortVariable Priority:3 Avoid variables with short names like n.
+[WARNING] PMD Failure: com.yk.utils.pmdstarter.app.utils.NumberUtils:10 Rule:ShortVariable Priority:3 Avoid variables with short names like fo.
 ```
 
 ## Problems I faced.

@@ -37,7 +37,7 @@
 
   <rule ref="category/java/codestyle.xml/ShortMethodName">
     <properties>
-      <property name="minimum" value="2"/>
+      <property name="minimum" value="3"/>
     </properties>
   </rule>
 
