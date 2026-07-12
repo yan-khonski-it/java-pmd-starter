@@ -36,6 +36,7 @@
   </rule>
 
   <rule ref="category/java/codestyle.xml/ShortMethodName">
+    <!-- 3 is PMD's default; this override only demonstrates the syntax - change the value to see the effect -->
     <properties>
       <property name="minimum" value="3"/>
     </properties>
