@@ -5,15 +5,14 @@ You can re-use it in other projects.
 
 Feel free to contribute and improve it.
 
-It uses my custom formatting [intellij-java-yan-google-style-v2_1.xml](intellij-java-yan-google-style-v2_1.xml)
-
-based on the original [intellij-java-google-style.xml](intellij-java-google-style.xml).
-
-[Google Style formatting](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml).
+It uses my custom formatting [intellij-java-yan-google-style-v2_1.xml](intellij-java-yan-google-style-v2_1.xml),
+based on the
+original [Google Style formatting](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml)
+(local copy: [intellij-java-google-style.xml](intellij-java-google-style.xml)).
 
 **My custom formatter changes:**
-yan v2.1 is Google Style with 120-column lines, a blank line after the Java class header, compact one-line Javadoc and
-empty classes, and a 2-blank-line tolerance outside Java; everything else is as in the original Google Style.
+yan v2.1 is Google Style with 120-column lines, compact one-line Javadoc and empty classes; everything else is as in the
+original Google Style.
 
 The custom ruleset ([custom-ruleset.xml](custom-ruleset.xml)) combines several PMD categories
 (performance, security, codestyle, errorprone, multithreading, bestpractices) with some rules excluded or customized.
